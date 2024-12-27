@@ -1,15 +1,35 @@
 {
-  "name": "elysia-app",
-  "version": "1.0.50",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "elysia": "latest"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+	"name": "elysia-app",
+	"version": "1.0.50",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "bun run --watch src/app.ts",
+		"dbp": "prisma db push",
+		"dbo": "prisma studio",
+		"dbg": "prisma generate",
+		"dbs": "prisma db seed",
+		"dbm": "prisma migrate dev --skip-seed",
+		"dbms": "prisma migrate dev",
+		"dbmr": "prisma migrate reset -f --skip-seed",
+		"dbmrs": "prisma migrate reset -f"
+	},
+	"dependencies": {
+		"@elysiajs/cors": "^1.2.0",
+		"@elysiajs/swagger": "^1.2.0",
+		"@faker-js/faker": "^9.3.0",
+		"@prisma/client": "^6.1.0",
+		"elysia": "latest",
+		"prisma-paginate": "^5.2.1",
+		"radash": "^12.1.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"bun-types": "latest",
+		"prisma": "^6.1.0"
+	},
+	"module": "src/app.js",
+	"prisma": {
+		"schema": "src/prisma/schema",
+		"seed": "bun src/seed/index.ts"
+	}
 }
